@@ -63,6 +63,8 @@ class Customer {
     return await Reservation.getReservationsForCustomer(this.id);
   }
 
+  /** return the full name of the user. */
+
   fullName() {
     return `${this.firstName} ${this.lastName}`;
   }
