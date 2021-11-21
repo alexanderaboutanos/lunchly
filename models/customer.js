@@ -1,4 +1,8 @@
-/** Customer for Lunchly */
+/**
+ * Customer for Lunchly
+ *
+ * @format
+ */
 
 const db = require("../db");
 const Reservation = require("./reservation");
@@ -26,7 +30,7 @@ class Customer {
        FROM customers
        ORDER BY last_name, first_name`
     );
-    return results.rows.map(c => new Customer(c));
+    return results.rows.map((c) => new Customer(c));
   }
 
   /** get a customer by ID. */
@@ -57,6 +61,10 @@ class Customer {
 
   async getReservations() {
     return await Reservation.getReservationsForCustomer(this.id);
+  }
+
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
   }
 
   /** save this customer. */
